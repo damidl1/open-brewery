@@ -33,3 +33,5 @@ function next() {
 
 
 //displaiare le informazioni delle birrerie nella maniera più cool possibile
+
+
