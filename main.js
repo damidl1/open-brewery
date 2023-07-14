@@ -1,28 +1,22 @@
 // let pageNumber = 1;
 
-
+DBService.getBreweries()
+.then(breweries => render(breweries));  
 
 // DBService.getBreweries(pageNumber)
 // .then(breweries => render(breweries));  // per chiamare le birrerie 
 
 let pageNumber = 1;
-let breweries;
-
-breweries = DBService.getBreweries()
-.then(breweries => render(breweries));  
-
-
-
 
 
 function render(breweries) {
     
-     for (brewery of breweries) {
-        console.log(brewery.name);
+     for (const brewery of breweries) {
+        // console.log(brewery.name);
      }
 
 
-}
+
 
 
 const mainContainer = document.getElementById('main-container');
@@ -30,7 +24,7 @@ mainContainer.innerHTML = '';
 
 for (let i = 0; i < breweries.length; i++) {
     
-    const brewery = breweries[i];
+    let brewery = breweries[i];
 
     const breweryCard = document.createElement('div');
 
@@ -48,7 +42,7 @@ for (let i = 0; i < breweries.length; i++) {
     const websiteCard = document.createElement('span');
     
     const nameNode = document.createTextNode('Name: ' + brewery.name + '\n');
-    const typeNode = document.createTextNode('Brewery Type: ' + brewery_type + '\n');
+    const typeNode = document.createTextNode('Brewery Type: ' + brewery.brewery_type + '\n');
     const addressNode = document.createTextNode('Address: ' + brewery.address_1 + '\n');
     const streetNode = document.createTextNode('Street: ' + brewery.street + '\n');
     const cityNode = document.createTextNode('City: ' + brewery.city + '\n');
@@ -80,10 +74,11 @@ for (let i = 0; i < breweries.length; i++) {
     breweryCard.appendChild(phoneCard);
     breweryCard.appendChild(websiteCard);
 
-    main-container.appendChild(breweryCard);
+    mainContainer.appendChild(breweryCard);
+ }
 }
 
-render();
+
 
 
 function previous() {
