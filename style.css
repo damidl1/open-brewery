@@ -1,0 +1,10 @@
+.main_container{
+    display: flex;
+    
+    border: 3px solid black;
+}
+
+.brewery-card{
+    display: flex;
+    flex-direction: column;
+}
