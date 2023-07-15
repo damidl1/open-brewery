@@ -17,8 +17,6 @@ function render(breweries) {
 
 
 
-
-
 const mainContainer = document.getElementById('main-container');
 mainContainer.innerHTML = '';
 
@@ -49,8 +47,35 @@ for (let i = 0; i < breweries.length; i++) {
     const stateProvinceNode = document.createTextNode('State Province: ' + brewery.state_province + '\n');
     const stateNode = document.createTextNode('State: ' + brewery.state + '\n');
     const countryNode = document.createTextNode('Country: ' + brewery.country + '\n');
-    const phoneNode = document.createTextNode('Phone: ' + brewery.phone + '\n');
-    const websiteNode = document.createTextNode('Website: ' + brewery.website_url);
+    const phoneNode = document.createTextNode('Phone: ' + '\n');
+    const websiteNode = document.createTextNode('Website: ');
+
+    // const phoneLink = document.createElement('a');
+    // phoneLink.href = 'tel: ' + brewery.phone;
+    // phoneLink.textContent = brewery.phone;
+
+
+    if (brewery.website_url) {
+        
+        const websiteLink = document.createElement('a');
+    
+        websiteLink.href =  brewery.website_url;
+        websiteLink.textContent = brewery.website_url;
+        websiteLink.target = "_blank";
+        websiteCard.appendChild(websiteNode);
+        websiteCard.appendChild(websiteLink);
+    }
+    
+
+    if (brewery.phone) {
+        
+        const phoneLink = document.createElement('a');
+        
+        phoneLink.href = 'tel: ' + brewery.phone;
+        phoneLink.textContent = brewery.phone;
+        phoneCard.appendChild(phoneNode);
+        phoneCard.appendChild(phoneLink);
+    }
 
     nameCard.appendChild(nameNode);
     typeCard.appendChild(typeNode);
@@ -60,8 +85,8 @@ for (let i = 0; i < breweries.length; i++) {
     stateProvinceCard.appendChild(stateProvinceNode);
     stateCard.appendChild(stateNode);
     countryCard.appendChild(countryNode);
-    phoneCard.appendChild(phoneNode);
-    websiteCard.appendChild(websiteNode);
+   
+    
 
     breweryCard.appendChild(nameCard);
     breweryCard.appendChild(typeCard);
@@ -73,7 +98,6 @@ for (let i = 0; i < breweries.length; i++) {
     breweryCard.appendChild(countryCard);
     breweryCard.appendChild(phoneCard);
     breweryCard.appendChild(websiteCard);
-
     mainContainer.appendChild(breweryCard);
  }
 }
