@@ -1,7 +1,11 @@
 // let pageNumber = 1;
 
 DBService.getBreweries()
-.then(breweries => render(breweries));  
+.then(breweries => render(breweries))
+.catch(err => {
+    console.log('404 page not found', err);
+});  
+    
 
 // DBService.getBreweries(pageNumber)
 // .then(breweries => render(breweries));  // per chiamare le birrerie 
