@@ -103,7 +103,18 @@ for (let i = 0; i < breweries.length; i++) {
     breweryCard.appendChild(phoneCard);
     breweryCard.appendChild(websiteCard);
     mainContainer.appendChild(breweryCard);
- }
+
+    const detailsBtn = document.createElement('button');
+    const detailNodeBtn = document.createTextNode('Dettagli');
+    detailsBtn.appendChild(detailNodeBtn);
+
+    detailsBtn.addEventListener('click', () => {
+      window.location.href = './details.html';
+    });
+ 
+    breweryCard.appendChild(detailsBtn);
+  }
+ 
 }
 
 
